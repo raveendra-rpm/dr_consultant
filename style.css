@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --primary: #9e2a4a;
     /* Deep rose / maroon */
     --primary-light: #d66485;
@@ -431,8 +431,8 @@ ul {
 }
 
 .about-left h2 {
-    font-size: 2.8rem;
-    line-height: 1.2;
+    font-size: 2.5rem;
+    line-height: 1.25;
     margin-bottom: 20px;
 }
 
@@ -3073,3 +3073,334 @@ ul {
         padding: 16px;
     }
 }
+/* Auth / Login Page */
+.auth-container { width: 100%; max-width: 420px; margin: auto; }
+.auth-card { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); text-align: center; }
+.auth-card h2 { font-size: 1.8rem; margin-bottom: 8px; color: var(--text-main); font-family: 'Fraunces', serif; }
+.auth-sub { font-size: 0.9rem; color: var(--text-light); margin-bottom: 30px; }
+.auth-card .field { text-align: left; margin-bottom: 18px; }
+.auth-card .field label { font-size: 0.85rem; font-weight: 600; color: var(--text-main); display: block; margin-bottom: 6px; }
+.auth-card .field input { width: 100%; padding: 12px 16px; border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; font-family: inherit; font-size: 0.95rem; outline: none; transition: all 0.3s ease; }
+.auth-card .field input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--secondary); }
+.auth-options { display: flex; justify-content: space-between; align-items: center; margin: 10px 0 24px; font-size: 0.85rem; }
+.remember-me { display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-light); }
+.forgot-pwd { color: var(--primary); font-weight: 600; }
+.auth-footer { margin-top: 24px; font-size: 0.9rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; }
+.auth-footer a { color: var(--primary); font-weight: 600; text-decoration: underline; }
+
+
+/* ================================
+   VIDEO THUMBNAIL (About Section)
+   ================================ */
+.about-video-thumb {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    background: var(--secondary);
+    border: 1.5px solid rgba(158, 42, 74, 0.12);
+    border-radius: 16px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 340px;
+}
+.about-video-thumb:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(158, 42, 74, 0.15);
+    border-color: var(--primary);
+}
+.avt-thumbnail {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.avt-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.avt-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(158, 42, 74, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+.about-video-thumb:hover .avt-overlay {
+    background: rgba(158, 42, 74, 0.7);
+}
+.avt-play-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 11px;
+    padding-left: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+.about-video-thumb:hover .avt-play-btn {
+    transform: scale(1.15);
+}
+.avt-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.avt-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.avt-info p {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.3;
+}
+.avt-duration {
+    font-size: 11px;
+    color: var(--text-light);
+}
+
+/* ================================
+   VIDEO MODAL
+   ================================ */
+.video-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.video-modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.video-modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 820px;
+    background: #0f0007;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.video-modal-overlay.active .video-modal-box {
+    transform: scale(1) translateY(0);
+}
+.video-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.25s ease;
+}
+.video-modal-close:hover { background: rgba(255,255,255,0.25); }
+.video-modal-inner {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+.video-modal-inner iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-modal-caption {
+    padding: 14px 20px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Center about-right cards */
+.about-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-right .memberships-card,
+.about-right .qual-card {
+    width: 100%;
+}
+
+.about-right .about-video-thumb { max-width: 100%; }
+
+
+.about-video-thumb { max-width: 100%; width: 100%; }
+
+
+/* ==============================
+   PROCESS SECTION — Simple Clean
+   ============================== */
+.process {
+    padding: 80px 0;
+    background: var(--bg-alt);
+}
+
+.process-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.process-step {
+    flex: 1;
+    min-width: 160px;
+    max-width: 220px;
+    text-align: center;
+    padding: 28px 16px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(158, 42, 74, 0.06);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.process-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(158, 42, 74, 0.1);
+    border-color: rgba(158, 42, 74, 0.15);
+}
+
+.ps-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--secondary);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin: 0 auto 12px;
+    transition: background 0.3s ease;
+}
+
+.process-step:hover .ps-icon {
+    background: var(--primary);
+    color: #fff;
+}
+
+.ps-num {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--primary-light);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.process-step h3 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.process-step p {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.ps-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: var(--primary-light);
+    font-size: 1rem;
+    opacity: 0.5;
+    flex-shrink: 0;
+    margin-top: 40px;
+}
+
+.process-cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 48px;
+    padding: 24px 32px;
+    background: var(--secondary);
+    border-radius: 16px;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.process-checks {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.process-checks span {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.process-checks span i {
+    color: var(--primary);
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .process-steps { gap: 16px; }
+    .ps-arrow { display: none; }
+    .process-step { min-width: 140px; }
+    .process-cta-row { flex-direction: column; text-align: center; }
+    .process-checks { justify-content: center; }
+}
+

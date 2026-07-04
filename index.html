@@ -27,10 +27,15 @@
                 <li><a href="#expertise">Expertise</a></li>
                 <li><a href="#process">Consult Online</a></li>
                 <li><a href="#awards">Awards</a></li>
-                <li><a href="#contact" class="btn-outline">Contact Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li id="language-selector-container" style="list-style:none;"></li>
+                <li><a href="login.html"
+                        style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:9999px;border:1.5px solid #9e2a4a;background:#9e2a4a;font-size:13px;font-weight:700;color:#fff;text-decoration:none;transition:all 0.3s ease;"
+                        onmouseover="this.style.background='#7a1f38';this.style.borderColor='#7a1f38';this.style.boxShadow='0 4px 12px rgba(158,42,74,0.25)'"
+                        onmouseout="this.style.background='#9e2a4a';this.style.borderColor='#9e2a4a';this.style.boxShadow='none'"><i
+                            class="fas fa-user" style="font-size:12px;"></i> Login</a></li>
             </ul>
             <div class="nav-actions">
-                <div id="language-selector-container"></div>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -121,7 +126,9 @@
                     </div>
                     <a href="#contact" class="btn-primary">Book a Consultation</a>
                 </div>
-                <div class="about-right reveal-right">
+
+                <div class="about-right reveal-right"
+                    style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <div class="memberships-card">
                         <div class="memberships-header">
                             <i class="fas fa-id-badge"></i>
@@ -148,10 +155,44 @@
                             <p>MBBS · MS · FMAS · D.MAS · FRM (KIEL, Germany)</p>
                         </div>
                     </div>
+
+                    <!-- Video Thumbnail -->
+                    <div class="about-video-thumb" id="openVideoModal" title="Watch: Meet Dr. Divya Singh">
+                        <div class="avt-thumbnail">
+                            <img src="assets/dr_divya.png" alt="Dr. Divya Singh - Meet the Doctor">
+                            <div class="avt-overlay">
+                                <div class="avt-play-btn">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="avt-info">
+                            <span class="avt-label"><i class="fas fa-video"></i> Watch Video</span>
+                            <p>Meet Dr. Divya Singh</p>
+                            <span class="avt-duration">~60 sec introduction</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal-overlay" id="videoModal">
+        <div class="video-modal-box">
+            <button class="video-modal-close" id="closeVideoModal" aria-label="Close video">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-modal-inner">
+                <iframe id="videoIframe" src="" title="Dr. Divya Singh – Meet the Doctor" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="video-modal-caption"><i class="fas fa-user-md"></i> Dr. Divya Singh — Gynaecologist & Fertility
+                Specialist, Varanasi</p>
+        </div>
+    </div>
 
     <!-- Expertise Section -->
     <section class="expertise" id="expertise">
@@ -197,82 +238,71 @@
 
     <!-- Online Consultation Process -->
     <section class="process" id="process">
-        <div class="process-inner">
-            <div class="container">
-                <div class="section-title text-center reveal-up">
-                    <span class="eyebrow-label light">How It Works</span>
-                    <h2 class="process-heading">Consult Dr. Divya Online</h2>
-                    <p class="process-subtext">Get expert women's health advice from home — in just 4 easy steps.</p>
-                </div>
+        <div class="container">
 
-                <div class="process-timeline">
-                    <div class="timeline-line"></div>
-
-                    <div class="process-card reveal-up" style="--delay:0.1s">
-                        <div class="process-card-top">
-                            <div class="process-num">01</div>
-                            <div class="process-icon-box">
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
-                        </div>
-                        <div class="process-card-body">
-                            <h3>Book Appointment</h3>
-                            <p>Pick a convenient date & time slot from available online slots in seconds.</p>
-                            <span class="process-tag"><i class="fas fa-clock"></i> 2 mins</span>
-                        </div>
-                    </div>
-
-                    <div class="process-card reveal-up" style="--delay:0.2s">
-                        <div class="process-card-top">
-                            <div class="process-num">02</div>
-                            <div class="process-icon-box">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                        </div>
-                        <div class="process-card-body">
-                            <h3>Secure Payment</h3>
-                            <p>Pay securely via UPI, card, or net banking. Instant confirmation sent.</p>
-                            <span class="process-tag"><i class="fas fa-shield-alt"></i> 100% Safe</span>
-                        </div>
-                    </div>
-
-                    <div class="process-card reveal-up" style="--delay:0.3s">
-                        <div class="process-card-top">
-                            <div class="process-num">03</div>
-                            <div class="process-icon-box">
-                                <i class="fas fa-video"></i>
-                            </div>
-                        </div>
-                        <div class="process-card-body">
-                            <h3>Video Consultation</h3>
-                            <p>Join a private, HD video call with Dr. Divya at your scheduled time.</p>
-                            <span class="process-tag"><i class="fas fa-user-shield"></i> Private &amp; Secure</span>
-                        </div>
-                    </div>
-
-                    <div class="process-card reveal-up" style="--delay:0.4s">
-                        <div class="process-card-top">
-                            <div class="process-num">04</div>
-                            <div class="process-icon-box">
-                                <i class="fas fa-file-medical"></i>
-                            </div>
-                        </div>
-                        <div class="process-card-body">
-                            <h3>Get E-Prescription</h3>
-                            <p>Receive your digital prescription on WhatsApp or Email instantly after.</p>
-                            <span class="process-tag"><i class="fab fa-whatsapp"></i> WhatsApp / Email</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-bottom reveal-up" style="--delay:0.5s">
-                    <p><i class="fas fa-circle-check"></i> No travel required &nbsp;&nbsp; <i
-                            class="fas fa-circle-check"></i> Available 7 days a week &nbsp;&nbsp; <i
-                            class="fas fa-circle-check"></i> Reports upload supported</p>
-                    <a href="book_online.html" class="btn-process-cta">Book Your Consultation <i
-                            class="fas fa-arrow-right"></i></a>
-                </div>
+            <div class="section-title text-center reveal-up">
+                <span class="eyebrow-label">How It Works</span>
+                <h2>Consult Dr. Divya Online</h2>
+                <div class="divider"></div>
+                <p>Get expert women's health advice from home — in just 4 easy steps.</p>
             </div>
+
+            <div class="process-steps">
+
+                <div class="process-step reveal-up" style="--delay:0.1s">
+                    <div class="ps-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="ps-num">01</div>
+                    <h3>Book Appointment</h3>
+                    <p>Pick a convenient date &amp; time slot from available online slots in seconds.</p>
+                </div>
+
+                <div class="ps-arrow"><i class="fas fa-chevron-right"></i></div>
+
+                <div class="process-step reveal-up" style="--delay:0.2s">
+                    <div class="ps-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="ps-num">02</div>
+                    <h3>Secure Payment</h3>
+                    <p>Pay securely via UPI, card, or net banking. Instant confirmation sent.</p>
+                </div>
+
+                <div class="ps-arrow"><i class="fas fa-chevron-right"></i></div>
+
+                <div class="process-step reveal-up" style="--delay:0.3s">
+                    <div class="ps-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="ps-num">03</div>
+                    <h3>Video Consultation</h3>
+                    <p>Join a private HD video call with Dr. Divya at your scheduled time.</p>
+                </div>
+
+                <div class="ps-arrow"><i class="fas fa-chevron-right"></i></div>
+
+                <div class="process-step reveal-up" style="--delay:0.4s">
+                    <div class="ps-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <div class="ps-num">04</div>
+                    <h3>Get E-Prescription</h3>
+                    <p>Receive your digital prescription on WhatsApp or Email instantly after.</p>
+                </div>
+
+            </div>
+
+            <div class="process-cta-row reveal-up" style="--delay:0.5s">
+                <div class="process-checks">
+                    <span><i class="fas fa-circle-check"></i> No travel required</span>
+                    <span><i class="fas fa-circle-check"></i> Available 7 days a week</span>
+                    <span><i class="fas fa-circle-check"></i> Reports upload supported</span>
+                </div>
+                <a href="book_online.html" class="btn-primary">Book Your Consultation <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
         </div>
     </section>
 
@@ -800,7 +830,7 @@
             </div><!-- end .blog-grid -->
 
             <div class="text-center reveal-up" style="--delay:0.4s; margin-top: 44px;">
-                <a href="#" class="btn-outline">View All Articles</a>
+                <a href="blog.html" class="btn-outline">View All Articles</a>
             </div>
         </div>
     </section>
@@ -887,6 +917,34 @@
 
     <script src="script.js"></script>
     <script src="google-translate.js"></script>
+    <script>
+        // ── Video Modal ──
+        const VIDEO_SRC = ''; // paste your YouTube embed URL here e.g. https://www.youtube.com/embed/VIDEOID?autoplay=1
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoIframe');
+        const openBtn = document.getElementById('openVideoModal');
+        const closeBtn = document.getElementById('closeVideoModal');
+
+        openBtn.addEventListener('click', function () {
+            iframe.src = VIDEO_SRC;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 </body>
 
 </html>

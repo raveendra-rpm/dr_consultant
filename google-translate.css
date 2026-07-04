@@ -41,7 +41,7 @@ html {
     gap: 8px;
     padding: 6px 14px;
     border-radius: 9999px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
     background: white;
     cursor: pointer;
     transition: all 0.3s ease;
