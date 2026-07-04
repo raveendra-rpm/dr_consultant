@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Online Consultation | Dr. Divya Singh</title>
+    <meta name="description"
+        content="Book a private, expert online consultation with Dr. Divya Singh today. Simple, secure, and from the comfort of your home.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add some padding to push the section below the fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        .book-section {
+            min-height: calc(100vh - 150px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" style="box-shadow: 0 5px 25px rgba(0,0,0,0.12);">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Dr. Divya <span>Singh</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#expertise">Expertise</a></li>
+                <li><a href="index.html#process">Consult Online</a></li>
+                <li><a href="index.html#awards">Awards</a></li>
+                <li><a href="index.html#contact" class="btn-outline">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Booking Widget Section -->
+    <section class="book-section" id="book-consultation">
+        <div class="book-widget">
+            <div class="widget-header">
+                <div class="eyebrow">Consult Dr. Divya Online</div>
+                <h1>Book Your Consultation</h1>
+                <p>Pick a slot that works for you — takes less than 2 minutes.</p>
+            </div>
+
+            <div class="stepper" id="stepper"></div>
+            <div class="progress-mobile">
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText"></div>
+            </div>
+
+            <!-- STEP 1 -->
+            <div class="panel step-panel" id="step-1">
+                <h2>Choose consultation type</h2>
+                <div class="sub">Select the option that fits your need.</div>
+                <div class="consult-cards">
+                    <div class="consult-card" data-type="quick" data-price="1000" data-mins="15">
+                        <div class="check">✓</div>
+                        <div class="tag">Quick Consult</div>
+                        <div class="price">₹1000 <span>/ 15 min</span></div>
+                        <ul>
+                            <li>Follow-up or minor concern</li>
+                            <li>Video call with Dr. Divya</li>
+                            <li>E-prescription after call</li>
+                        </ul>
+                    </div>
+                    <div class="consult-card" data-type="detailed" data-price="1500" data-mins="30">
+                        <div class="check">✓</div>
+                        <div class="tag">Detailed Consult</div>
+                        <div class="price">₹1500 <span>/ 30 min</span></div>
+                        <ul>
+                            <li>New patient or detailed history</li>
+                            <li>Pregnancy / fertility discussion</li>
+                            <li>Report review + E-prescription</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="error" id="err-1">Please select a consultation type to continue.</div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="panel step-panel" id="step-2" style="display:none;">
+                <h2>Pick date & time</h2>
+                <div class="sub">All times shown are IST.</div>
+                <div class="date-scroll" id="dateScroll"></div>
+                <div class="slot-grid" id="slotGrid"></div>
+                <div class="error" id="err-2">Please select a date and an available time slot.</div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="panel step-panel" id="step-3" style="display:none;">
+                <h2>Your details</h2>
+                <div class="sub">We'll use this to confirm your booking and send the video link.</div>
+                <div class="form-grid">
+                    <div class="field"><label for="pName">Full Name*</label><input id="pName" type="text"
+                            placeholder="e.g. Priya Sharma"></div>
+                    <div class="field"><label for="pAge">Age*</label><input id="pAge" type="number" min="1"
+                            placeholder="e.g. 28"></div>
+                    <div class="field"><label for="pPhone">Phone Number*</label><input id="pPhone" type="tel"
+                            placeholder="10-digit mobile"></div>
+                    <div class="field"><label for="pEmail">Email (optional)</label><input id="pEmail" type="email"
+                            placeholder="you@example.com"></div>
+                    <div class="field full">
+                        <label>Are you a</label>
+                        <div class="toggle-row">
+                            <div class="toggle-opt selected" data-val="new">New Patient</div>
+                            <div class="toggle-opt" data-val="existing">Existing Patient</div>
+                        </div>
+                    </div>
+                    <div class="field full"><label for="pReason">Reason for consultation*</label><textarea id="pReason"
+                            rows="3" placeholder="Briefly describe your concern..."></textarea></div>
+                </div>
+                <div class="error" id="err-3">Please fill Name, Age, Phone Number and Reason.</div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="panel step-panel" id="step-4" style="display:none;">
+                <h2>Review & pay</h2>
+                <div class="sub">Confirm your details before payment.</div>
+                <div class="summary-card" id="summaryCard"></div>
+                <div class="sub" style="margin-bottom:10px;">Choose payment method</div>
+                <div class="pay-methods">
+                    <div class="pay-opt" data-method="upi"><span class="ic">📱</span>UPI</div>
+                    <div class="pay-opt" data-method="card"><span class="ic">💳</span>Card</div>
+                    <div class="pay-opt" data-method="netbanking"><span class="ic">🏦</span>Netbanking</div>
+                </div>
+                <div class="error" id="err-4">Please select a payment method.</div>
+            </div>
+
+            <!-- STEP 5 -->
+            <div class="panel step-panel" id="step-5" style="display:none;">
+                <div class="confirm-wrap">
+                    <div class="confirm-icon">✓</div>
+                    <h2>Booking Confirmed!</h2>
+                    <div class="bid">Booking ID: <b id="bookingId"></b></div>
+                    <div class="confirm-note" id="confirmSummary"></div>
+                    <div class="confirm-note">📲 Your video call link and reminder will be sent on WhatsApp & Email 10
+                        minutes before your slot.</div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <button class="btn btn-ghost" id="backBtn" style="visibility:hidden;">← Back</button>
+                <button class="btn btn-primary" id="nextBtn">Continue</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container faq-container">
+            <div class="section-title text-center reveal-up">
+                <span class="eyebrow-label">Common Questions</span>
+                <h2>Frequently Asked Questions</h2>
+                <div class="divider"></div>
+                <p>Everything you need to know about consulting Dr. Divya online.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item reveal-up" style="--delay:0.1s">
+                    <button class="faq-question">
+                        <span>How does the online video consultation work?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Once you book a slot and complete the payment, you will receive a secure video link via
+                            WhatsApp and email. Simply click the link at your scheduled time to connect with Dr. Divya
+                            directly from your phone or computer.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.15s">
+                    <button class="faq-question">
+                        <span>Is the digital prescription valid at physical pharmacies?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely. The e-prescription provided after your consultation is completely valid and
+                            accepted by all pharmacies and diagnostic centers across India.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.2s">
+                    <button class="faq-question">
+                        <span>What is your refund and reschedule policy?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can reschedule your appointment up to 2 hours before the scheduled time at no extra cost.
+                            If you need to cancel, full refunds are provided for cancellations made at least 12 hours in
+                            advance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.25s">
+                    <button class="faq-question">
+                        <span>Can I communicate with the doctor in Hindi?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Dr. Divya is fluent in both Hindi and English. You can discuss your health concerns
+                            comfortably in the language you prefer.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.3s">
+                    <button class="faq-question">
+                        <span>Can I share my previous medical reports and scans?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can easily upload your past medical reports, prescriptions, or ultrasound scans
+                            through WhatsApp before your consultation so the doctor can review them in advance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.35s">
+                    <button class="faq-question">
+                        <span>Is my personal health information kept private and secure?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We prioritize your privacy. All video calls are end-to-end encrypted, and your medical
+                            records and history are kept strictly confidential.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.4s">
+                    <button class="faq-question">
+                        <span>Do I need to download a specific app for the video call?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No special app is required. The video link works directly in your web browser on your
+                            smartphone, tablet, or laptop.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.45s">
+                    <button class="faq-question">
+                        <span>What if my internet disconnects during the consultation?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Don't worry. If the call drops due to internet issues, we will try to reconnect immediately.
+                            If the connection fails entirely, we will quickly arrange a phone call or reschedule your
+                            slot.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.5s">
+                    <button class="faq-question">
+                        <span>Can I consult online for pregnancy-related issues?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, online consultations are great for routine pregnancy follow-ups, discussing symptoms,
+                            and reviewing scan reports. However, physical emergencies require an immediate in-clinic
+                            visit.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up" style="--delay:0.55s">
+                    <button class="faq-question">
+                        <span>How soon will I receive my e-prescription after the call?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Your e-prescription and a summary of the doctor's advice will be sent to your WhatsApp and
+                            registered email address within 15-30 minutes after the consultation ends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Video Section -->
+    <section class="instagram-section">
+        <span class="eyebrow-label">@drdivyasingh</span>
+        <h2>Discover us on Instagram</h2>
+        
+        <div class="marquee-wrapper">
+            <div class="reels-track">
+                <!-- Reel 1 -->
+                <div class="reel-card">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&q=80" alt="Instagram Video Thumbnail 1">
+                    <div class="reel-overlay">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                        <div class="reel-text">
+                            <span class="tag">Instagram Post</span>
+                            <h3>Pregnancy Diet Tips</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reel 2 -->
+                <div class="reel-card">
+                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=500&q=80" alt="Instagram Video Thumbnail 2">
+                    <div class="reel-overlay">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                        <div class="reel-text">
+                            <span class="tag">Instagram Post</span>
+                            <h3>PCOS Myths Busted</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reel 3 -->
+                <div class="reel-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee4?w=500&q=80" alt="Instagram Video Thumbnail 3">
+                    <div class="reel-overlay">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                        <div class="reel-text">
+                            <span class="tag">Instagram Post</span>
+                            <h3>When to see a doctor</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reel 4 -->
+                <div class="reel-card">
+                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&q=80" alt="Instagram Video Thumbnail 4">
+                    <div class="reel-overlay">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                        <div class="reel-text">
+                            <span class="tag">Instagram Post</span>
+                            <h3>Healthy Habits for Women</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate for loop -->
+                <!-- Reel 1 -->
+                <div class="reel-card">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&q=80" alt="Instagram Video Thumbnail 1">
+                    <div class="reel-overlay">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                        <div class="reel-text">
+                            <span class="tag">Instagram Post</span>
+                            <h3>Pregnancy Diet Tips</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reel 2 -->
+                <div class="reel-card">
+                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=500&q=80" alt="Instagram Video Thumbnail 2">
+                    <div class="reel-overlay">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                        <div class="reel-text">
+                            <span class="tag">Instagram Post</span>
+                            <h3>PCOS Myths Busted</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reel 3 -->
+                <div class="reel-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee4?w=500&q=80" alt="Instagram Video Thumbnail 3">
+                    <div class="reel-overlay">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                        <div class="reel-text">
+                            <span class="tag">Instagram Post</span>
+                            <h3>When to see a doctor</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reel 4 -->
+                <div class="reel-card">
+                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&q=80" alt="Instagram Video Thumbnail 4">
+                    <div class="reel-overlay">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                        <div class="reel-text">
+                            <span class="tag">Instagram Post</span>
+                            <h3>Healthy Habits for Women</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="https://instagram.com/" class="instagram-btn" target="_blank" rel="noopener noreferrer">
+            Follow @drdivyasingh &rarr;
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top: auto;">
+        <div class="footer-links" style="text-align: center; padding: 20px 0 10px; background: #0f0007;">
+            <a href="privacy.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 12px; font-size: 0.85rem; transition: 0.3s;" onmouseover="this.style.color='#C89B4C'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Privacy Policy</a>
+            <span style="color: rgba(255, 255, 255, 0.3);">|</span>
+            <a href="terms.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 12px; font-size: 0.85rem; transition: 0.3s;" onmouseover="this.style.color='#C89B4C'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Terms & Conditions</a>
+            <span style="color: rgba(255, 255, 255, 0.3);">|</span>
+            <a href="refund.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 12px; font-size: 0.85rem; transition: 0.3s;" onmouseover="this.style.color='#C89B4C'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Refund & Cancellation</a>
+        </div>
+        <div class="footer-bottom-bar" style="padding-top: 10px;">
+            <p>&copy; 2026 Dr. Divya Singh. All Rights Reserved. | Designed with <i class="fas fa-heart"></i> for
+                Women's Health</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="floating-whatsapp" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
