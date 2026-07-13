@@ -45,28 +45,57 @@
 
     <!-- Hero Section -->
     <header class="hero" id="home">
+        <!-- Animated Background Elements -->
+        <div class="hero-bg">
+            <div class="bg-shape shape-1"></div>
+            <div class="bg-shape shape-2"></div>
+            <div class="bg-shape shape-3"></div>
+            <div class="bg-pattern"></div>
+        </div>
+
         <div class="container hero-container">
             <div class="hero-content">
-                <p class="subtitle">Compassionate Care for Women</p>
-                <h1>Dr. Divya Singh</h1>
-                <p class="qualifications">MBBS, MS, FMAS, D.MAS, FRM (KIEL, Germany)</p>
-                <div class="hero-tags">
-                    <span class="tag">Obstetrician</span>
-                    <span class="tag">Gynaecologist</span>
-                    <span class="tag">Fertility Specialist</span>
+                <div class="subtitle-badge">
+                    <span class="pulse-dot"></span>
+                    <p class="subtitle">Compassionate Care for Women</p>
                 </div>
+
+                <h1 class="hero-title">Dr. Divya <span class="highlight-text">Singh</span></h1>
+
+                <p class="qualifications">MBBS, MS, FMAS, D.MAS, FRM (KIEL, Germany)</p>
+
+                <div class="hero-tags">
+                    <span class="tag"><i class="fas fa-hand-holding-medical"></i> Obstetrician</span>
+                    <span class="tag"><i class="fas fa-venus"></i> Gynaecologist</span>
+                    <span class="tag"><i class="fas fa-seedling"></i> Fertility Specialist</span>
+                </div>
+
                 <p class="description">Consultant at Sudha Surgical Multispeciality Hospital, Varanasi. Dedicated to
                     providing comprehensive care in high-risk pregnancy, gynae endoscopy, and fertility treatments.</p>
+
                 <div class="hero-buttons">
-                    <a href="book_online.html" class="btn-primary">Book Consultation</a>
-                    <a href="#about" class="btn-secondary">Learn More</a>
+                    <a href="book_online.html" class="btn-primary btn-glow">
+                        <span>Book Consultation</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#about" class="btn-secondary btn-outline-dynamic">
+                        <span>Learn More</span>
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="image-wrapper">
-                    <img src="assets/dr_divya.png" alt="Dr. Divya Singh">
+
+            <div class="hero-image-section">
+                <div class="image-composition">
+                    <!-- Glassmorphism decorative element -->
+                    <div class="glass-backdrop"></div>
+
+                    <div class="main-image">
+                        <img src="assets/dr_divya.png" alt="Dr. Divya Singh">
+                        <div class="image-gradient-overlay"></div>
+                    </div>
+
+
                 </div>
-                <div class="blob-bg"></div>
             </div>
         </div>
     </header>
@@ -904,8 +933,9 @@
                 & Cancellation</a>
         </div>
         <div class="footer-bottom-bar" style="padding-top: 10px;">
-            <p>&copy; 2026 Dr. Divya Singh. All Rights Reserved. | Designed with <i class="fas fa-heart"></i> for
-                Women's Health</p>
+            <p>&copy; 2026 Dr. Divya Singh. All Rights Reserved. | Designed by <a href="https://sarthaktech.co.in/"
+                    target="_blank" rel="noopener noreferrer"
+                    style="color: inherit; text-decoration: underline;">Sarthak Tech</a></p>
         </div>
     </footer>
 
