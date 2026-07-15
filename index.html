@@ -17,6 +17,17 @@
     <link rel="stylesheet" href="google-translate.css">
 </head>
 
+<script>
+    // Redirect first-time visitors to campaign page
+    // Uses sessionStorage so it only shows once per browser session
+    (function () {
+        if (!sessionStorage.getItem('visited')) {
+            sessionStorage.setItem('visited', 'true');
+            window.location.replace('campaign.html');
+        }
+    })();
+</script>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar">
@@ -30,11 +41,7 @@
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#contact">Contact Us</a></li>
                 <li id="language-selector-container" style="list-style:none;"></li>
-                <li><a href="login.html"
-                        style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:9999px;border:1.5px solid #9e2a4a;background:#9e2a4a;font-size:13px;font-weight:700;color:#fff;text-decoration:none;transition:all 0.3s ease;"
-                        onmouseover="this.style.background='#7a1f38';this.style.borderColor='#7a1f38';this.style.boxShadow='0 4px 12px rgba(158,42,74,0.25)'"
-                        onmouseout="this.style.background='#9e2a4a';this.style.borderColor='#9e2a4a';this.style.boxShadow='none'"><i
-                            class="fas fa-user" style="font-size:12px;"></i> Login</a></li>
+
             </ul>
             <div class="nav-actions">
                 <div class="hamburger">
@@ -686,14 +693,14 @@
 
     <!-- Instagram Video Section -->
     <section class="instagram-section">
-        <span class="eyebrow-label">@drdivyasingh</span>
+        <span class="eyebrow-label">@dr.divya.singh__</span>
         <h2>Discover us on Instagram</h2>
 
         <div class="marquee-wrapper">
             <div class="reels-track">
                 <!-- Reel 1 -->
-                <div class="reel-card">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&q=80"
+                <a href="https://www.instagram.com/dr.divya.singh__/reel/DYm8t0Fxtqx/" target="_blank" class="reel-card">
+                    <img src="images/reel1.jpg"
                         alt="Instagram Video Thumbnail 1">
                     <div class="reel-overlay">
                         <div class="play-button"><i class="fas fa-play"></i></div>
@@ -702,10 +709,10 @@
                             <h3>Pregnancy Diet Tips</h3>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Reel 2 -->
-                <div class="reel-card">
-                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=500&q=80"
+                <a href="https://www.instagram.com/dr.divya.singh__/reel/DY4UxL9xd_y/" target="_blank" class="reel-card">
+                    <img src="images/reel2.jpg"
                         alt="Instagram Video Thumbnail 2">
                     <div class="reel-overlay">
                         <div class="play-button"><i class="fas fa-play"></i></div>
@@ -714,10 +721,10 @@
                             <h3>PCOS Myths Busted</h3>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Reel 3 -->
-                <div class="reel-card">
-                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee4?w=500&q=80"
+                <a href="https://www.instagram.com/dr.divya.singh__/reel/DZZMIjbxsaM/" target="_blank" class="reel-card">
+                    <img src="images/reel1.jpg"
                         alt="Instagram Video Thumbnail 3">
                     <div class="reel-overlay">
                         <div class="play-button"><i class="fas fa-play"></i></div>
@@ -726,10 +733,10 @@
                             <h3>When to see a doctor</h3>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Reel 4 -->
-                <div class="reel-card">
-                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&q=80"
+                <a href="https://www.instagram.com/dr.divya.singh__/reel/DZsfxgLSaHC/" target="_blank" class="reel-card">
+                    <img src="images/reel2.jpg"
                         alt="Instagram Video Thumbnail 4">
                     <div class="reel-overlay">
                         <div class="play-button"><i class="fas fa-play"></i></div>
@@ -738,13 +745,12 @@
                             <h3>Healthy Habits for Women</h3>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Duplicate for loop -->
-                <!-- Reel 1 -->
-                <div class="reel-card">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&q=80"
-                        alt="Instagram Video Thumbnail 1">
+                <!-- Reel 5 -->
+                <a href="https://www.instagram.com/dr.divya.singh__/reel/DZu88qTyTjt/" target="_blank" class="reel-card">
+                    <img src="images/reel5.jpg"
+                        alt="Instagram Video Thumbnail 5">
                     <div class="reel-overlay">
                         <div class="play-button"><i class="fas fa-play"></i></div>
                         <div class="reel-text">
@@ -752,11 +758,11 @@
                             <h3>Pregnancy Diet Tips</h3>
                         </div>
                     </div>
-                </div>
-                <!-- Reel 2 -->
-                <div class="reel-card">
-                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=500&q=80"
-                        alt="Instagram Video Thumbnail 2">
+                </a>
+                <!-- Reel 6 -->
+                <a href="https://www.instagram.com/dr.divya.singh__/reel/DaVouX-ytMV/" target="_blank" class="reel-card">
+                    <img src="images/reel6.jpg"
+                        alt="Instagram Video Thumbnail 6">
                     <div class="reel-overlay">
                         <div class="play-button"><i class="fas fa-play"></i></div>
                         <div class="reel-text">
@@ -764,11 +770,11 @@
                             <h3>PCOS Myths Busted</h3>
                         </div>
                     </div>
-                </div>
-                <!-- Reel 3 -->
-                <div class="reel-card">
-                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee4?w=500&q=80"
-                        alt="Instagram Video Thumbnail 3">
+                </a>
+                <!-- Reel 7 -->
+                <a href="https://www.instagram.com/dr.divya.singh__/reel/DakUrl8Kbwd/" target="_blank" class="reel-card">
+                    <img src="images/reel5.jpg"
+                        alt="Instagram Video Thumbnail 7">
                     <div class="reel-overlay">
                         <div class="play-button"><i class="fas fa-play"></i></div>
                         <div class="reel-text">
@@ -776,11 +782,11 @@
                             <h3>When to see a doctor</h3>
                         </div>
                     </div>
-                </div>
-                <!-- Reel 4 -->
-                <div class="reel-card">
-                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&q=80"
-                        alt="Instagram Video Thumbnail 4">
+                </a>
+                <!-- Reel 8 -->
+                <a href="https://www.instagram.com/dr.divya.singh__/reel/DapAOkryO2V/" target="_blank" class="reel-card">
+                    <img src="images/reel6.jpg"
+                        alt="Instagram Video Thumbnail 8">
                     <div class="reel-overlay">
                         <div class="play-button"><i class="fas fa-play"></i></div>
                         <div class="reel-text">
@@ -788,7 +794,7 @@
                             <h3>Healthy Habits for Women</h3>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -812,7 +818,7 @@
                 <!-- Card 1 -->
                 <a href="#" class="blog-card reveal-up" style="--delay:0.1s">
                     <div class="blog-card-img">
-                        <img src="https://images.unsplash.com/photo-1555243896-771a80b72cb0?w=600&q=80"
+                        <img src="images/reel1.jpg"
                             alt="Pregnancy Care">
                         <span class="blog-card-tag">Pregnancy</span>
                     </div>
@@ -829,7 +835,7 @@
                 <!-- Card 2 -->
                 <a href="#" class="blog-card reveal-up" style="--delay:0.2s">
                     <div class="blog-card-img">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="PCOS">
+                        <img src="images/reel2.jpg" alt="PCOS">
                         <span class="blog-card-tag">PCOS</span>
                     </div>
                     <div class="blog-card-body">
@@ -844,7 +850,7 @@
                 <!-- Card 3 -->
                 <a href="#" class="blog-card reveal-up" style="--delay:0.3s">
                     <div class="blog-card-img">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee4?w=600&q=80"
+                        <img src="images/reel5.jpg"
                             alt="Menopause">
                         <span class="blog-card-tag">Wellness</span>
                     </div>
@@ -888,7 +894,7 @@
                     <i class="fas fa-hospital-alt"></i>
                     <div>
                         <strong>Hospital</strong>
-                        <p>Sudha Surgical Multispeciality Hospital, Varanasi</p>
+                        <p><a href="https://sudhasurgicalhospital.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Sudha Surgical Multispeciality Hospital, Varanasi</a></p>
                     </div>
                 </div>
                 <div class="contact-info-row">
@@ -902,7 +908,7 @@
                     <i class="fas fa-envelope"></i>
                     <div>
                         <strong>Email</strong>
-                        <p>contact@drdivyasingh.com</p>
+                        <p>divyasinghds@gmail.com</p>
                     </div>
                 </div>
                 <div class="contact-socials">
