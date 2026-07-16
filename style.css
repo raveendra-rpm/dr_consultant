@@ -1576,7 +1576,7 @@ ul {
 .cta-section {
     position: relative;
     padding: 110px 0;
-    background: linear-gradient(135deg, #2a0a15 0%, #4a0f25 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
     overflow: hidden;
 }
 
@@ -1736,16 +1736,51 @@ ul {
 /* ======= */
 /* FOOTER  */
 /* ======= */
-.footer-bottom-bar {
-    background: #0f0007;
-    padding: 22px 5%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.88rem;
+.site-footer {
+    background: var(--primary-dark);
 }
 
-.footer-bottom-bar i {
-    color: var(--primary-light);
+.site-footer .footer-links {
+    text-align: center;
+    padding: 20px 0 10px;
+}
+
+.site-footer .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.site-footer .footer-links a:hover {
+    color: var(--secondary);
+}
+
+.site-footer .footer-links span {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.site-footer .footer-bottom-bar {
+    padding: 10px 5% 22px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.88rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer .footer-bottom-bar i {
+    color: var(--secondary);
+}
+
+.site-footer .footer-bottom-bar a {
+    color: inherit;
+    text-decoration: underline;
+    transition: var(--transition);
+}
+
+.site-footer .footer-bottom-bar a:hover {
+    color: var(--secondary);
 }
 
 /* ===================== */
@@ -2081,6 +2116,13 @@ ul {
     background: linear-gradient(to left, var(--secondary) 0%, transparent 100%);
 }
 
+@media (max-width: 768px) {
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+        display: none;
+    }
+}
+
 .reels-track {
     display: flex;
     gap: 24px;
@@ -2262,7 +2304,7 @@ ul {
     z-index: 9999;
     text-decoration: none;
     transition: var(--transition);
-    animation: glow 3s infinite;
+    animation: glow 1.5s infinite;
 }
 
 .floating-whatsapp:hover {

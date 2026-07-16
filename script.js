@@ -9,8 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const icon = hamburger.querySelector('i');
             if (navLinks.classList.contains('active')) {
                 icon.classList.replace('fa-bars', 'fa-times');
+                document.body.style.overflow = 'hidden';
             } else {
                 icon.classList.replace('fa-times', 'fa-bars');
+                document.body.style.overflow = '';
             }
         });
         navLinks.querySelectorAll('a').forEach(link => {
@@ -18,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.classList.remove('active');
                 const icon = hamburger.querySelector('i');
                 if (icon) icon.classList.replace('fa-times', 'fa-bars');
+                document.body.style.overflow = '';
             });
         });
     }
